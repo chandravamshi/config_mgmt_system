@@ -1,0 +1,46 @@
+# Maven
+target/
+*.jar
+*.war
+*.ear
+*.class
+
+# Visual Studio Code
+.vscode/
+.settings/
+*.code-workspace
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# Eclipse
+.classpath
+.project
+
+# Gradle
+.gradle/
+build/
+
+# Logs
+logs/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Application properties (if sensitive data is stored)
+src/main/resources/application.properties
+
+# Docker files
+*.dockerfile
+
+# Other
+*.swp
+*~
