@@ -1,19 +1,32 @@
 services:
   user-service:
     build:
-      context: ./user-service  # Path to your user-service directory
+      context: ./user-service # Path to user-service directory
+      dockerfile: Dockerfile # Specify Dockerfile
+    ports:
+      - "8081:8080" # Map port 8081 of the host to port 8080 of the container
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/user_db # JDBC URL to MySQL database
+      SPRING_DATASOURCE_USERNAME: user_admin # Database username
+      SPRING_DATASOURCE_PASSWORD: admin123 # Database password
+    depends_on:
+      - db # This will ensure the database starts before the service
+  
+  config-service:
+    build:
+      context: ./config-service  # Path to your config-service directory
       dockerfile: Dockerfile  # Specify Dockerfile 
     ports:
-      - "8081:8080"  # Map port 8081 of the host to port 8080 of the container
+      - "8082:8080"  # Map port 8082 of the host to port 8080 of the config-service container
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/user_db  # JDBC URL to MySQL database
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/user_db  # JDBC URL to MySQL database for config
       SPRING_DATASOURCE_USERNAME: user_admin  # Database username
       SPRING_DATASOURCE_PASSWORD: admin123  # Database password
     depends_on:
       - db  # This will ensure the database starts before the service
 
   db:
-    image: mysql:8.0  # Use MySQL version 8.0 or as per your requirement
+    image: mysql:8.0 # Use MySQL version 8.0 or as per your requirement
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root123
@@ -21,11 +34,11 @@ services:
       MYSQL_USER: user_admin
       MYSQL_PASSWORD: admin123
     ports:
-      - "3306:3306"  # Expose MySQL port
+      - "3306:3306" # Expose MySQL port
     volumes:
-      - db_data:/var/lib/mysql  # Persist database data
+      - ./mysql_data:/var/lib/mysql  # own directory
 
-volumes:
-  db_data:  # Named volume for database persistence
+#volumes:
+#  db_data:  # Named volume for database persistence
 
 
