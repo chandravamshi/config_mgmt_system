@@ -5,7 +5,6 @@ import com.example.configservice.repository.ConfigRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.validation.Valid;
 import java.util.Optional;
 import java.util.List;
 
@@ -16,7 +15,7 @@ public class ConfigService {
     @Autowired
     private ConfigRepository configRepository;
 
-    public Config createConfig(@Valid Config config) {
+    public Config createConfig( Config config) {
         return configRepository.save(config);
     }
 
@@ -55,7 +54,7 @@ public class ConfigService {
         Optional<Config> existingConfigOpt = configRepository.findById(id);
         if (existingConfigOpt.isPresent()) {
             Config existingConfig = existingConfigOpt.get();
-            existingConfig.setKey(updatedConfig.getKey());
+            existingConfig.setConfigKey(updatedConfig.getConfigKey());
             existingConfig.setValue(updatedConfig.getValue());
             existingConfig.setDescription(updatedConfig.getDescription());
             return configRepository.save(existingConfig);

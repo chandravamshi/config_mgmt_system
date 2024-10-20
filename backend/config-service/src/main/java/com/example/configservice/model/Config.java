@@ -1,28 +1,28 @@
 package com.example.configservice.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
+@Table(name = "configs")
 public class Config {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Key is required")
-    private String key;
+    @Column(nullable = false)
+    private String configkey;
 
-    @NotBlank(message = "Value is required")
+    @Column(nullable = false)
     private String value;
 
+    @Column(nullable = true)
     private String description;
 
-    // Getters and Setters
-    public Config(String key, String value, String description) {
-        this.key = key;
-        this.value = value;
-        this.description = description;
-    }
+    
 
     // Getters and Setters for the fields
 
@@ -34,12 +34,12 @@ public class Config {
         this.id = id;
     }
 
-    public String getKey() {
-        return key;
+    public String getConfigKey() {
+        return configkey;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setConfigKey(String configkey) {
+        this.configkey = configkey;
     }
 
     public String getValue() {

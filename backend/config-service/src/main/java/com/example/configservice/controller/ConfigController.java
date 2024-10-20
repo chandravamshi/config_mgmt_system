@@ -46,6 +46,12 @@ public class ConfigController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteConfig(@PathVariable Long id) {
+
+        // Check if the config with the given ID exists
+        if (!configService.findById(id).isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build(); // Return 404 if not found
+        }
+        
         configService.deleteById(id);
         return ResponseEntity.noContent().build();
     }

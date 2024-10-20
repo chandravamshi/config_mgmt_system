@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Edit Configuration</h2>
+<mat-dialog-content style="display: flex;
+    flex-direction: column;">
+  <mat-form-field appearance="fill">
+    <mat-label>Config Key</mat-label>
+    <input matInput [(ngModel)]="data.configKey" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Value</mat-label>
+    <input matInput [(ngModel)]="data.value" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea matInput [(ngModel)]="data.description"></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button [mat-dialog-close]="data">Save</button>
+</mat-dialog-actions>

@@ -44,3 +44,47 @@ src/main/resources/application.properties
 # Other
 *.swp
 *~
+
+# Node modules
+node_modules/
+
+# Build output
+dist/
+build/
+out-tsc/
+
+# Angular cache
+.angular/
+
+# Environment files
+src/environments/*.ts
+!src/environments/environment.prod.ts # Keep production environment file
+
+# IDE specific files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+*.tmp
+*.temp
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Coverage reports
+coverage/
+
+# Miscellaneous
+*.log
+*.lock
+
+# Other files to ignore
+*.tgz
