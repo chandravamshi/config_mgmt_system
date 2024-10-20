@@ -1,5 +1,8 @@
 # Backend
 
+## Overview
+This project provides an API for managing  user and configuration records. It allows users and users and to create, read, update, and delete configuration entries through a RESTful interface. The backend is containerized with Docker, making it easy to deploy and manage.
+
 ### Prerequisites
 
 Ensure you have the following installed on your machine:
@@ -164,3 +167,79 @@ Here are example requests using `curl` for each operation:
 
 ---
 ---
+
+# Frontend
+
+
+## Config Dashboard 
+
+## Overview
+
+The Config Dashboard is a web application built with Angular that allows users to manage configuration records easily. Users can create, read, update, and delete configuration entries through a user-friendly interface.
+
+
+### Prerequisites
+
+Before you begin, ensure you have the following installed on your machine:
+
+- [Node.js](https://nodejs.org/) (including npm)
+- [Angular CLI](https://angular.io/cli)
+
+### Installation
+
+1. **Clone the repository** (if you haven't already):
+
+   ```bash
+   git clone <repository-url>
+   cd config-dash
+   ```
+
+2. **Install dependencies**:
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the application**:
+
+   ```bash
+   ng serve
+   ```
+
+4. **Open your browser** and navigate to `http://localhost:4200`.
+
+### Logging In
+
+Please Use the following credentials to log in or else it wont work:
+
+- **Username**: `user`
+- **Password**: `password`
+
+Once logged in, you will be directed to the dashboard where you can manage configuration records.
+
+### Dashboard Features
+
+The dashboard provides the following functionalities:
+
+- **Create Configuration Records**: Add new configuration entries.
+- **Read Configuration Records**: View existing configuration entries.
+- **Update Configuration Records**: Modify existing entries.
+- **Delete Configuration Records**: Remove unwanted entries.
+
+### Example Usage
+
+After logging in, you will see an interface that allows you to perform CRUD operations on configuration records. Follow these steps:
+
+1. **Create a New Record**:
+   - Fill out the form with the required details and submit.
+
+2. **Read Existing Records**:
+   - View all current records displayed on the dashboard.
+
+3. **Update a Record**:
+   - Select an existing record, modify its details, and save changes.
+
+4. **Delete a Record**:
+   - Choose a record to delete and confirm the action.
+
+
